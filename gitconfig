@@ -1,0 +1,31 @@
+[user]
+  name = 曹家锋
+  email = funfriendcjf@gmail.com
+[github]
+  user = funfriend
+[alias]
+  br = branch
+  st = status
+  co = checkout
+  # (ci)commit
+  ci = commit
+  cia = commit --amend
+  # (df)diff
+  df = diff
+  dfc = diff --cached
+  dft = difftool
+  # (mg)merge
+  mg = merge
+  mgt = mergetool
+  # nice logs
+  l = log --decorate --graph --date=short --pretty=\"format:%C(blue)%ad%Creset %C(yellow)%h%C(green)%d%Creset %C()%s %C(black) [%an]%Creset\"
+  changes = log --pretty=format:\"%h %cr %cn %Cgreen%s%Creset\" --name-status
+  mini = log --pretty=format:\"%h\"
+  short = log --pretty=format:\"%h %cr %cn %Cgreen%s%Creset\"
+  changelog = log --pretty=format:\" * %s\"
+  shortnocolor = log --pretty=format:\"%h %cr %cn %s\"
+[color]
+  ui = auto
+  interactive = auto
+[credential]
+  helper = cache --timeout=86400
