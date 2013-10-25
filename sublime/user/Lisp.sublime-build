@@ -1,0 +1,6 @@
+
+{
+"cmd": ["/usr/local/bin/sbcl", "--script", "${file}"],
+"working_dir": "${file_path}",
+"selector": "source.lisp"
+}
