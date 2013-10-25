@@ -2,6 +2,7 @@
 	"installed_packages":
 	[
 		"HTML5",
+		"Markdown Extended",
 		"Package Control",
 		"SideBarEnhancements"
 	]
