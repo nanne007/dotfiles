@@ -1,10 +1,10 @@
 {
 	"installed_packages":
 	[
+		"CoffeeScript",
 		"HTML5",
 		"Markdown Extended",
 		"Package Control",
-		"ScalaFormat",
 		"SideBarEnhancements"
 	]
 }
