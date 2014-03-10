@@ -3,8 +3,10 @@
 	[
 		"CoffeeScript",
 		"HTML5",
+		"lispindent",
 		"Markdown Extended",
 		"Package Control",
+		"Racket",
 		"SideBarEnhancements"
 	]
 }
