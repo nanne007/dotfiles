@@ -29,8 +29,6 @@
   interactive = auto
 [credential]
   helper = cache --timeout=86400
-[core]
-  editor = subl -n -w
 
 [difftool "kdiff3"]
   path = /Applications/kdiff3.app/Contents/MacOS/kdiff3
