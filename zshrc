@@ -45,7 +45,7 @@ ZSH_THEME="robbyrussell"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(brew git rbenv gem bundler)
+plugins=(brew bundler coffee gem git git-extras git-flow node npm osx rake rbenv sbt scala)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -66,4 +66,3 @@ export PATH=$HOME/bin:$PATH
 
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
-
