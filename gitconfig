@@ -24,6 +24,7 @@
   short = log --pretty=format:\"%h %cr %cn %Cgreen%s%Creset\"
   changelog = log --pretty=format:\" * %s\"
   shortnocolor = log --pretty=format:\"%h %cr %cn %s\"
+	ignores = "!gi() { curl -s https://www.gitignore.io/api/$@ ;}; gi"
 [color]
   ui = auto
   interactive = auto
