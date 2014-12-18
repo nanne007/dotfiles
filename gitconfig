@@ -2,7 +2,7 @@
   name = Cao Jiafeng
   email = funfriendcjf@gmail.com
 [github]
-  user = windor
+  user = lerencao
 [alias]
   br = branch
   st = status
@@ -46,3 +46,6 @@
   keepBackup = false
 [merge]
   tool = kdiff3
+[filter "media"]
+	clean = git-media-clean %f
+	smudge = git-media-smudge %f
