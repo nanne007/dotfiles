@@ -76,6 +76,9 @@ export PATH=$HOME/bin:$PATH
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 
+# rbenv configuation
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+
 # pyenv configuration
 if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
 
