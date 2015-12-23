@@ -45,11 +45,20 @@ ZSH_THEME="robbyrussell"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(brew bundler coffee gem git git-extras git-flow node npm osx rake rbenv sbt scala)
+plugins=(brew bundler coffee gem git git-extras git-flow mvn node npm osx rake rbenv sbt scala svn)
 
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
+
+fpath=(/usr/local/share/zsh/site-functions $fpath)
+
+# compsys initialization
+autoload -U compinit
+compinit
+# show completion menu when number of options is at least 2
+# zstyle ':completion:*' menu select=2
+
 
 export PATH=$HOME/bin:$PATH
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -66,3 +75,25 @@ export PATH=$HOME/bin:$PATH
 
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
+
+# pyenv configuration
+if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
+
+# java env configuration
+if which jenv > /dev/null; then eval "$(jenv init -)"; fi
+
+# git ignore cli
+function gi() { curl -L -s https://www.gitignore.io/api/$@ ;}
+
+# visual studio code ...
+if [ "$(uname)" = "Darwin" ]; then
+  vscode () {
+    if [[ $# = 0 ]]
+    then
+      open -a "Visual Studio Code"
+    else
+      [[ $1 = /* ]] && F="$1" || F="$PWD/${1#./}"
+      open -a "Visual Studio Code" --args "$F"
+    fi
+  }
+fi
