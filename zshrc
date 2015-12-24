@@ -76,14 +76,6 @@ export PATH=$HOME/bin:$PATH
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 
-# rbenv configuation
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
-
-# pyenv configuration
-if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
-
-# java env configuration
-if which jenv > /dev/null; then eval "$(jenv init -)"; fi
 
 # git ignore cli
 function gi() { curl -L -s https://www.gitignore.io/api/$@ ;}
@@ -107,3 +99,14 @@ if [ "$(uname)" = "Linux" ]; then
   export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH"
   export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
 fi
+
+# because in linux, rbenv is installed using linuxbrew
+# so the config should come after rbenv export path
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+
+# pyenv configuration
+if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
+
+# java env configuration
+if which jenv > /dev/null; then eval "$(jenv init -)"; fi
+
