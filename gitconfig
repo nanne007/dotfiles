@@ -33,17 +33,22 @@
 
 [difftool "kdiff3"]
   trustExitCode = false
+[difftool "meld"]
+  trustExitCode = false
 [difftool]
   prompt = false
 [diff]
-  tool = kdiff3
+  tool = meld
 
 [mergetool "kdiff3"]
+  trustExitCode = false
+[mergetool "meld"]
   trustExitCode = false
 [mergetool]
   keepBackup = false
 [merge]
-  tool = kdiff3
+  tool = meld
+
 [filter "media"]
   required = true
   clean = git media clean %f
