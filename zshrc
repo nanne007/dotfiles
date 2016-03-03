@@ -45,7 +45,7 @@ ZSH_THEME="robbyrussell"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(brew bundler coffee gem git git-extras git-flow mvn node npm osx rake rbenv sbt scala svn zsh-syntax-highlighting)
+plugins=(brew bundler coffee gem git git-extras git-flow mvn node npm osx rake rbenv sbt scala svn mix mix-fast zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -109,3 +109,5 @@ if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
 # java env configuration
 if which jenv > /dev/null; then eval "$(jenv init -)"; fi
 
+# added by ~/.emacs.d/setup.sh
+export PATH=$HOME/.cask/bin:$PATH
