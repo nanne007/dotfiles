@@ -111,3 +111,9 @@ if which jenv > /dev/null; then eval "$(jenv init -)"; fi
 
 # added by ~/.emacs.d/setup.sh
 export PATH=$HOME/.cask/bin:$PATH
+
+
+if [ "$TERM" = "xterm" ]
+then
+    export TERM=xterm-256color
+fi
