@@ -117,3 +117,10 @@ if [ "$TERM" = "xterm" ]
 then
     export TERM=xterm-256color
 fi
+
+
+alias emax="emacsclient -t"
+if which emacsclient > /dev/null
+then
+    export EDITOR="emacsclient -t"
+fi
