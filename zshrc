@@ -45,7 +45,7 @@ ZSH_THEME="robbyrussell"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(brew bundler coffee gem git git-extras git-flow mvn node npm osx rake rbenv sbt scala svn docker mix mix-fast zsh-syntax-highlighting)
+plugins=(asdf brew bundler coffee gem git git-extras git-flow mvn node npm osx rake sbt scala svn docker mix mix-fast zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -81,33 +81,33 @@ function gi() { curl -L -s https://www.gitignore.io/api/$@ ;}
 
 # visual studio code ...
 if [ "$(uname)" = "Darwin" ]; then
-  vscode () {
-    if [[ $# = 0 ]]
-    then
-      open -a "Visual Studio Code"
-    else
-      [[ $1 = /* ]] && F="$1" || F="$PWD/${1#./}"
-      open -a "Visual Studio Code" --args "$F"
-    fi
-  }
+    vscode () {
+        if [[ $# = 0 ]]
+        then
+            open -a "Visual Studio Code"
+        else
+            [[ $1 = /* ]] && F="$1" || F="$PWD/${1#./}"
+            open -a "Visual Studio Code" --args "$F"
+        fi
+    }
 fi
 
 # use linuxbrew
 if [ "$(uname)" = "Linux" ]; then
-  export PATH="$HOME/.linuxbrew/bin:$PATH"
-  export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH"
-  export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
+    export PATH="$HOME/.linuxbrew/bin:$PATH"
+    export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH"
+    export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
 fi
 
-# because in linux, rbenv is installed using linuxbrew
-# so the config should come after rbenv export path
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+# # because in linux, rbenv is installed using linuxbrew
+# # so the config should come after rbenv export path
+# if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
-# pyenv configuration
-if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
+# # pyenv configuration
+# if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
 
-# java env configuration
-if which jenv > /dev/null; then eval "$(jenv init -)"; fi
+# # java env configuration
+# if which jenv > /dev/null; then eval "$(jenv init -)"; fi
 
 # added by ~/.emacs.d/setup.sh
 export PATH=$HOME/.cask/bin:$PATH
@@ -124,3 +124,6 @@ if which emacsclient > /dev/null
 then
     export EDITOR="emacsclient -t"
 fi
+
+
+export PATH=$HOME/.cargo/bin:$PATH
