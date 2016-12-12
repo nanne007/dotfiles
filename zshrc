@@ -45,7 +45,7 @@ ZSH_THEME="robbyrussell"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(asdf brew bundler coffee gem git git-extras git-flow mvn node npm osx rake sbt scala svn docker mix mix-fast zsh-syntax-highlighting)
+plugins=(brew bundler coffee gem git git-extras git-flow mvn node npm osx rake sbt scala svn docker mix mix-fast zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -60,7 +60,7 @@ compinit
 
 
 export PATH=$HOME/bin:$PATH
-# export MANPATH="/usr/local/man:$MANPATH"
+export MANPATH="/usr/local/man:$MANPATH"
 
 # # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
