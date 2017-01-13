@@ -9,3 +9,6 @@ abbr -a be bundle exec
 abbr -a bl bundle list
 abbr -a bo bundle open
 abbr -a bcn bundle clean
+
+
+set -x GOPATH $HOME/.go
