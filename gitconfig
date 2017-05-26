@@ -1,6 +1,3 @@
-[user]
-  name = Cao Jiafeng
-  email = funfriendcjf@gmail.com
 [github]
   user = lerencao
 [alias]
@@ -52,10 +49,6 @@
   conflictstyle = diff3
 [push]
   default = simple
-[status]
-  showUntrackedFiles = all
-[status]
-  showUntrackedFiles = all
 [filter "media"]
   required = true
   clean = git media clean %f

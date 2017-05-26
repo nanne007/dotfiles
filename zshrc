@@ -5,7 +5,7 @@ ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="robbyrussell"
+ZSH_THEME="jnrowe"
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
@@ -45,16 +45,42 @@ ZSH_THEME="robbyrussell"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(brew bundler coffee gem git git-extras git-flow mvn node npm osx rake sbt scala svn docker mix mix-fast zsh-syntax-highlighting vagrant)
+
+plugins=(
+    bundler
+    gem
+    git
+    # git-extras
+    # git-flow
+    mvn
+    node
+    npm
+    osx
+    rake
+    sbt
+    scala
+    docker
+    docker-compose
+    mix
+    mix-fast
+    vagrant
+    kubectl
+    kubernetes-helm
+)
+
+
+
+fpath=(
+    /usr/local/share/zsh-completions
+    /usr/local/share/zsh/site-functions
+    $fpath
+)
 
 source $ZSH/oh-my-zsh.sh
 
-# User configuration
-
-fpath=(/usr/local/share/zsh/site-functions $fpath)
 # compsys initialization
-autoload -U compinit
-compinit
+# autoload -U compinit
+# compinit
 # show completion menu when number of options is at least 2
 # zstyle ':completion:*' menu select=2
 
@@ -123,3 +149,6 @@ fi
 
 
 export PATH=$HOME/.cargo/bin:$PATH
+
+source $HOME/.asdf/asdf.sh
+source $HOME/.asdf/completions/asdf.bash
