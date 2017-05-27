@@ -17,6 +17,7 @@
   # nice logs
   l = log --decorate --graph --date=short --pretty=\"format:%C(blue)%ad%Creset %C(yellow)%h%C(green)%d%Creset %C()%s %C(black) [%an]%Creset\"
   glog = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
+  graph = log --graph --all --decorate --stat --date=iso
   changes = log --pretty=format:\"%h %cr %cn %Cgreen%s%Creset\" --name-status
   mini = log --pretty=format:\"%h\"
   short = log --pretty=format:\"%h %cr %cn %Cgreen%s%Creset\"
