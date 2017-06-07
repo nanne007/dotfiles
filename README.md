@@ -1,4 +1,4 @@
-**一些常用的配置文件，包括 gitconfig, gemrc, sublime preferences.**
+**一些常用的配置文件，包括 gitconfig, gemrc**
 
 ### How to Use
 
