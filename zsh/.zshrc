@@ -66,6 +66,7 @@ plugins=(
     vagrant
     kubectl
     kubernetes-helm
+    golang
 )
 
 
@@ -157,3 +158,12 @@ if [ "$(uname)" = "Darwin" ]
 then
     export JAVA_HOME=$(/usr/libexec/java_home)
 fi
+
+if [[ -z "$GOPATH" ]]
+then
+    export GOPATH=$HOME/go
+    export GOBIN=$HOME/go/bin
+    export PATH=$GOBIN:$PATH
+fi
+
+export GOPATH=$HOME/gospace:$GOPATH
