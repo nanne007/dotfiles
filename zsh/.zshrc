@@ -1,8 +1,8 @@
-# fpath=(
-#     /usr/local/share/zsh-completions
-#     /usr/local/share/zsh/site-functions
-#     $fpath
-# )
+fpath=(
+    /usr/local/share/zsh-completions
+    /usr/local/share/zsh/site-functions
+    $fpath
+)
 export CLICOLOR=1
 
 
@@ -39,12 +39,18 @@ zplug "plugins/osx", from:oh-my-zsh, if:"[[ $OSTYPE == *darwin* ]]"
 zplug "plugins/brew", from:oh-my-zsh, if:"[[ $OSTYPE == *darwin* ]]"
 zplug "plugins/brew-cask", from:oh-my-zsh, if:"[[ $OSTYPE == *darwin* ]]"
 zplug "lib/directories", from:oh-my-zsh
+zplug "lib/history", from:oh-my-zsh
 zplug "themes/jnrowe", from:oh-my-zsh, as:theme
+
+# not working due to the hsitory format
+# zplug "gko/ssh-connect", from:github, use:"ssh-connect.sh"
 zplug "zsh-users/zsh-completions", from:github
 zplug "zsh-users/zsh-history-substring-search", from:github
 zplug "zsh-users/zsh-autosuggestions", from:github
-zplug "zsh-users/zsh-syntax-highlighting", from:github, defer:2
 zplug "zlsun/solarized-man", from:github
+zplug "zsh-users/zsh-syntax-highlighting", from:github, defer:2
+zplug "qianxinfeng/vscode", from:github
+# zplug "modules/history", from:prezto
 
 # Install plugins if there are plugins that have not been installed
 if ! zplug check --verbose; then
