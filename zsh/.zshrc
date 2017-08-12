@@ -1,61 +1,23 @@
-# Path to your oh-my-zsh configuration.
-ZSH=$HOME/.oh-my-zsh
+# fpath=(
+#     /usr/local/share/zsh-completions
+#     /usr/local/share/zsh/site-functions
+#     $fpath
+# )
+export CLICOLOR=1
 
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
-ZSH_THEME="jnrowe"
 
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+if [[ -z $ZPLUG_HOME ]]; then
+    export ZPLUG_HOME=$HOME/.zplug
+fi
+source $ZPLUG_HOME/init.zsh
 
-# Set to this to use case-sensitive completion
-# CASE_SENSITIVE="true"
-
-# Uncomment this to disable bi-weekly auto-update checks
-# DISABLE_AUTO_UPDATE="true"
-
-# Uncomment to change how often before auto-updates occur? (in days)
-# export UPDATE_ZSH_DAYS=13
-
-# Uncomment following line if you want to disable colors in ls
-# DISABLE_LS_COLORS="true"
-
-# Uncomment following line if you want to disable autosetting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
-# Uncomment following line if you want to disable command autocorrection
-# DISABLE_CORRECTION="true"
-
-# Uncomment following line if you want red dots to be displayed while waiting for completion
-# COMPLETION_WAITING_DOTS="true"
-
-# Uncomment following line if you want to disable marking untracked files under
-# VCS as dirty. This makes repository status check for large repositories much,
-# much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-# Uncomment following line if you want to  shown in the command execution time stamp
-# in the history command output. The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|
-# yyyy-mm-dd
-# HIST_STAMPS="mm/dd/yyyy"
-
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-
-plugins=(
+oh_my_zsh_plugins=(
     bundler
     gem
     git
-    # git-extras
-    # git-flow
     mvn
     node
     npm
-    osx
     rake
     sbt
     scala
@@ -67,23 +29,32 @@ plugins=(
     kubectl
     kubernetes-helm
     golang
+    zsh_reload
+    colorize
 )
+for plugin in $oh_my_zsh_plugins; do
+    zplug "plugins/$plugin", from:oh-my-zsh
+done
+zplug "plugins/osx", from:oh-my-zsh, if:"[[ $OSTYPE == *darwin* ]]"
+zplug "plugins/brew", from:oh-my-zsh, if:"[[ $OSTYPE == *darwin* ]]"
+zplug "plugins/brew-cask", from:oh-my-zsh, if:"[[ $OSTYPE == *darwin* ]]"
+zplug "lib/directories", from:oh-my-zsh
+zplug "themes/jnrowe", from:oh-my-zsh, as:theme
+zplug "zsh-users/zsh-completions", from:github
+zplug "zsh-users/zsh-history-substring-search", from:github
+zplug "zsh-users/zsh-autosuggestions", from:github
+zplug "zsh-users/zsh-syntax-highlighting", from:github, defer:2
+zplug "zlsun/solarized-man", from:github
 
-
-
-fpath=(
-    /usr/local/share/zsh-completions
-    /usr/local/share/zsh/site-functions
-    $fpath
-)
-
-source $ZSH/oh-my-zsh.sh
-
-# compsys initialization
-# autoload -U compinit
-# compinit
-# show completion menu when number of options is at least 2
-# zstyle ':completion:*' menu select=2
+# Install plugins if there are plugins that have not been installed
+if ! zplug check --verbose; then
+    printf "Install? [y/N]: "
+    if read -q; then
+        echo; zplug install
+    fi
+fi
+# Then, source plugins and add commands to $PATH
+zplug load
 
 
 export PATH=$HOME/bin:$PATH
