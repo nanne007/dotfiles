@@ -5,6 +5,9 @@ fpath=(
 )
 export CLICOLOR=1
 
+# More details, see https://stackoverflow.com/questions/444951/zsh-stop-backward-kill-word-on-directory-delimiter
+autoload -U select-word-style
+select-word-style bash
 
 if [[ -z $ZPLUG_HOME ]]; then
     export ZPLUG_HOME=$HOME/.zplug
@@ -12,22 +15,22 @@ fi
 source $ZPLUG_HOME/init.zsh
 
 oh_my_zsh_plugins=(
-    bundler
-    gem
+    # bundler
+    # gem
     git
     mvn
-    node
-    npm
-    rake
+    # node
+    # npm
+    # rake
     sbt
     scala
     docker
     docker-compose
-    mix
-    mix-fast
+    # mix
+    # mix-fast
     vagrant
-    kubectl
-    kubernetes-helm
+    # kubectl
+    # kubernetes-helm
     golang
     zsh_reload
     colorize
@@ -42,15 +45,12 @@ zplug "lib/directories", from:oh-my-zsh
 zplug "lib/history", from:oh-my-zsh
 zplug "themes/jnrowe", from:oh-my-zsh, as:theme
 
-# not working due to the hsitory format
-# zplug "gko/ssh-connect", from:github, use:"ssh-connect.sh"
 zplug "zsh-users/zsh-completions", from:github
 zplug "zsh-users/zsh-history-substring-search", from:github
 zplug "zsh-users/zsh-autosuggestions", from:github
 zplug "zlsun/solarized-man", from:github
 zplug "zsh-users/zsh-syntax-highlighting", from:github, defer:2
 zplug "qianxinfeng/vscode", from:github
-# zplug "modules/history", from:prezto
 
 # Install plugins if there are plugins that have not been installed
 if ! zplug check --verbose; then
@@ -62,6 +62,12 @@ fi
 # Then, source plugins and add commands to $PATH
 zplug load
 
+autoload -Uz compinit
+if [ $(date +'%j') != $(stat -f '%Sm' -t '%j' ~/.zcompdump) ]; then
+  compinit
+else
+  compinit -C
+fi
 
 export PATH=$HOME/bin:$PATH
 export MANPATH="/usr/local/man:$MANPATH"
@@ -82,19 +88,6 @@ export MANPATH="/usr/local/man:$MANPATH"
 
 # git ignore cli
 function gi() { curl -L -s https://www.gitignore.io/api/$@ ;}
-
-# visual studio code ...
-if [ "$(uname)" = "Darwin" ]; then
-    vscode () {
-        if [[ $# = 0 ]]
-        then
-            open -a "Visual Studio Code"
-        else
-            [[ $1 = /* ]] && F="$1" || F="$PWD/${1#./}"
-            open -a "Visual Studio Code" --args "$F"
-        fi
-    }
-fi
 
 # use linuxbrew
 if [ "$(uname)" = "Linux" ]; then
