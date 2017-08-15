@@ -9,6 +9,9 @@ export CLICOLOR=1
 autoload -U select-word-style
 select-word-style bash
 
+# .. instead of cd ..
+setopt autocd
+
 if [[ -z $ZPLUG_HOME ]]; then
     export ZPLUG_HOME=$HOME/.zplug
 fi
