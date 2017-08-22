@@ -1,6 +1,7 @@
 fpath=(
     /usr/local/share/zsh-completions
     /usr/local/share/zsh/site-functions
+    $HOME/.zfunc
     $fpath
 )
 export CLICOLOR=1
@@ -22,8 +23,8 @@ oh_my_zsh_plugins=(
     # gem
     git
     mvn
-    # node
-    # npm
+    node
+    npm
     # rake
     sbt
     scala
@@ -37,6 +38,8 @@ oh_my_zsh_plugins=(
     golang
     zsh_reload
     colorize
+    cargo
+    rust
 )
 for plugin in $oh_my_zsh_plugins; do
     zplug "plugins/$plugin", from:oh-my-zsh
@@ -124,6 +127,7 @@ fi
 
 export PATH=$HOME/.cargo/bin:$PATH
 
+
 source $HOME/.asdf/asdf.sh
 source $HOME/.asdf/completions/asdf.bash
 
@@ -140,3 +144,4 @@ then
 fi
 
 export GOPATH=$HOME/gospace:$GOPATH
+
