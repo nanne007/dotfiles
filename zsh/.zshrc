@@ -1,9 +1,3 @@
-fpath=(
-    /usr/local/share/zsh-completions
-    /usr/local/share/zsh/site-functions
-    $HOME/.zfunc
-    $fpath
-)
 export CLICOLOR=1
 
 # More details, see https://stackoverflow.com/questions/444951/zsh-stop-backward-kill-word-on-directory-delimiter
@@ -17,22 +11,14 @@ if [[ -z $ZPLUG_HOME ]]; then
     export ZPLUG_HOME=$HOME/.zplug
 fi
 source $ZPLUG_HOME/init.zsh
+# Let zplug manage zplug
+zplug 'zplug/zplug', hook-build:'zplug --self-manage'
 
 oh_my_zsh_plugins=(
-    # bundler
-    # gem
-    git
-    mvn
-    node
-    npm
-    # rake
-    sbt
-    scala
     docker
     docker-compose
     # mix
     # mix-fast
-    vagrant
     # kubectl
     # kubernetes-helm
     golang
@@ -44,18 +30,26 @@ oh_my_zsh_plugins=(
 for plugin in $oh_my_zsh_plugins; do
     zplug "plugins/$plugin", from:oh-my-zsh
 done
-zplug "plugins/osx", from:oh-my-zsh, if:"[[ $OSTYPE == *darwin* ]]"
-zplug "plugins/brew", from:oh-my-zsh, if:"[[ $OSTYPE == *darwin* ]]"
-zplug "plugins/brew-cask", from:oh-my-zsh, if:"[[ $OSTYPE == *darwin* ]]"
+
 zplug "lib/directories", from:oh-my-zsh
 zplug "lib/history", from:oh-my-zsh
 zplug "themes/jnrowe", from:oh-my-zsh, as:theme
 
+
 zplug "zsh-users/zsh-completions", from:github
-zplug "zsh-users/zsh-history-substring-search", from:github
+
 zplug "zsh-users/zsh-autosuggestions", from:github
-zplug "zlsun/solarized-man", from:github
 zplug "zsh-users/zsh-syntax-highlighting", from:github, defer:2
+zplug "zsh-users/zsh-history-substring-search", from:github, \
+      defer:3
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
+bindkey -M emacs '^P' history-substring-search-up
+bindkey -M emacs '^N' history-substring-search-down
+bindkey -M vicmd 'k' history-substring-search-up
+bindkey -M vicmd 'j' history-substring-search-down
+
+zplug "zlsun/solarized-man", from:github
 zplug "qianxinfeng/vscode", from:github
 
 # Install plugins if there are plugins that have not been installed
@@ -133,7 +127,7 @@ source $HOME/.asdf/completions/asdf.bash
 
 if [ "$(uname)" = "Darwin" ]
 then
-    export JAVA_HOME=$(/usr/libexec/java_home)
+    export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
 fi
 
 if [[ -z "$GOPATH" ]]
@@ -144,4 +138,3 @@ then
 fi
 
 export GOPATH=$HOME/gospace:$GOPATH
-
