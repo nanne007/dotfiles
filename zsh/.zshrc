@@ -62,13 +62,6 @@ fi
 # Then, source plugins and add commands to $PATH
 zplug load
 
-autoload -Uz compinit
-if [ $(date +'%j') != $(stat -f '%Sm' -t '%j' ~/.zcompdump) ]; then
-  compinit
-else
-  compinit -C
-fi
-
 export PATH=$HOME/bin:$PATH
 export MANPATH="/usr/local/man:$MANPATH"
 
@@ -137,4 +130,11 @@ then
     export PATH=$GOBIN:$PATH
 fi
 
-export GOPATH=$HOME/gospace:$GOPATH
+# export GOPATH=$HOME/gospace:$GOPATH
+
+autoload -Uz compinit
+if [ $(date +'%j') != $(stat -f '%Sm' -t '%j' ~/.zcompdump) ]; then
+  compinit
+else
+  compinit -C
+fi
