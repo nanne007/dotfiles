@@ -1,3 +1,7 @@
+if test -d $HOME/bin
+    set -x PATH $HOME/bin $PATH
+end
+
 if test -d $HOME/.cargo
     set -x PATH $HOME/.cargo/bin $PATH
 end

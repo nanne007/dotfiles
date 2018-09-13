@@ -1,7 +1,10 @@
 fisherman/ansible-completion
 spentacular/asdf-fish
+fisherman/await
 edc/bass
 barnybug/docker-fish-completion
+fisherman/fzf
+fisherman/get
 fisherman/getopts
 fisherman/git_util
 maman/plugin-gvm
