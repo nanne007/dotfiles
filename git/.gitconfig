@@ -30,24 +30,23 @@
 [credential]
   helper = cache --timeout=86400
 
-[difftool "kdiff3"]
-  trustExitCode = false
-[difftool "meld"]
-  trustExitCode = false
-[difftool]
-  prompt = false
 [diff]
   tool = meld
+[difftool]
+  prompt = false
+[difftool "meld"]
+  trustExitCode = true
+  cmd = open -W -a Meld --args \"$LOCAL\" \"$REMOTE\"
 
-[mergetool "kdiff3"]
-  trustExitCode = false
-[mergetool "meld"]
-  trustExitCode = false
-[mergetool]
-  keepBackup = false
 [merge]
   tool = meld
-  conflictstyle = diff3
+[mergetool]
+  keepBackup = false
+  prompt = false
+[mergetool "meld"]
+  trustExitCode = true
+  cmd = open -W -a Meld --args --auto-merge \"$LOCAL\" \"$BASE\" \"$REMOTE\" --output=\"$MERGED\"
+
 [push]
   default = simple
 [filter "media"]
