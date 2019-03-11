@@ -35,3 +35,8 @@ set -g fish_user_paths "/usr/local/sbin" $fish_user_paths
 set -x _DEFAULT_PROXY "http://127.0.0.1:1087"
 alias proxy="set -x -g ALL_PROXY $_DEFAULT_PROXY; set -x -g HTTP_PROXY $_DEFAULT_PROXY; set -x -g HTTPS_PROXY $_DEFAULT_PROXY"
 alias unproxy="set -e ALL_PROXY; and set -e HTTP_PROXY; and set -e HTTPS_PROXY"
+
+# see https://lug.ustc.edu.cn/wiki/mirrors/help/rust-static for more details
+set -x RUSTUP_DIST_SERVER "https://mirrors.ustc.edu.cn/rust-static"
+set -x RUSTUP_UPDATE_ROOT "https://mirrors.ustc.edu.cn/rust-static/rustup"
+
