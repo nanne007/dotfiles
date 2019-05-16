@@ -1,22 +1,3 @@
-# set -g fish_user_paths "/usr/local/sbin" $fish_user_paths
-set -x PATH "/usr/local/sbin" $PATH
-if test -d $HOME/bin
-    set -x PATH $HOME/bin $PATH
-end
-
-if test -d $HOME/.cargo
-    set -x PATH $HOME/.cargo/bin $PATH
-end
-
-if test -d $HOME/go
-    set -x GOPATH $HOME/go
-    if test ! -d $GOPATH/bin
-        command mkdir -p $GOPATH/bin
-    end
-    set -x GOBIN $GOPATH/bin
-    set -x PATH $GOBIN $PATH
-end
-
 set -x EDITOR 'emacsclient -nw'
 abbr -a emax emacsclient -nw
 
@@ -40,7 +21,6 @@ alias unproxy="set -e ALL_PROXY; and set -e HTTP_PROXY; and set -e HTTPS_PROXY"
 set -x RUSTUP_DIST_SERVER "https://mirrors.ustc.edu.cn/rust-static"
 set -x RUSTUP_UPDATE_ROOT "https://mirrors.ustc.edu.cn/rust-static/rustup"
 
-
 # auto install fisher package manager
 if not functions -q fisher
     set -q XDG_CONFIG_HOME; or set XDG_CONFIG_HOME ~/.config
@@ -56,4 +36,22 @@ set fish_complete_path $fish_complete_path[1] $fisher_path/completions $fish_com
 
 for file in $fisher_path/conf.d/*.fish
     source $file 2> /dev/null
+end
+
+
+set -l my_user_paths $HOME/.cargo/bin $HOME/bin "/usr/local/opt/mysql@5.6/bin" "/usr/local/sbin"
+
+if test -d $HOME/go
+    set -x GOPATH $HOME/go
+    if test ! -d $GOPATH/bin
+        command mkdir -p $GOPATH/bin
+    end
+    set -x GOBIN $GOPATH/bin
+    set -p my_user_paths $GOBIN
+end
+
+for x in $my_user_paths
+    if begin not contains $x $fish_user_paths; and test -d $x; end
+        set -gxa fish_user_paths $x
+    end
 end
