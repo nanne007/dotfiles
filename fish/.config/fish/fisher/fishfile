@@ -1,8 +1,8 @@
 spentacular/asdf-fish
 edc/bass
 barnybug/docker-fish-completion
-fisherman/fzf
-fisherman/getopts
-fisherman/git_util
-maman/plugin-gvm
-fisherman/z
+jethrokuan/z
+fishpkg/fish-git-util
+jorgebucaran/fish-getopts
+jethrokuan/fzf
+fishpkg/fish-get-file-age
