@@ -13,7 +13,7 @@ if test (uname) = "Darwin"
     set -x JAVA_HOME (/usr/libexec/java_home -v 1.8)
 end
 
-set -x _DEFAULT_PROXY "http://127.0.0.1:1087"
+set -x _DEFAULT_PROXY "http://127.0.0.1:10087"
 alias proxy="set -x -g ALL_PROXY $_DEFAULT_PROXY; set -x -g HTTP_PROXY $_DEFAULT_PROXY; set -x -g HTTPS_PROXY $_DEFAULT_PROXY"
 alias unproxy="set -e ALL_PROXY; and set -e HTTP_PROXY; and set -e HTTPS_PROXY"
 
@@ -39,7 +39,7 @@ for file in $fisher_path/conf.d/*.fish
 end
 
 
-set -l my_user_paths $HOME/.cargo/bin $HOME/bin "/usr/local/opt/mysql@5.6/bin" "/usr/local/sbin"
+set -l my_user_paths $HOME/.cargo/bin $HOME/bin "/usr/local/opt/mysql@5.6/bin" "/usr/local/sbin" "/usr/local/bin"
 
 if test -d $HOME/go
     set -x GOPATH $HOME/go

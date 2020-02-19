@@ -80,6 +80,6 @@
 	email = funfriendcjf@gmail.com
 	name = caojiafeng
 [http "https://github.com"]
-	proxy = socks5://0.0.0.0:1086
+	proxy = socks5://0.0.0.0:10086
 [https "https://github.com"]
-    proxy = socks5://0.0.0.0:1086
+    proxy = socks5://0.0.0.0:10086
