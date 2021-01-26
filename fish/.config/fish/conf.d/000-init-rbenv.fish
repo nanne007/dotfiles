@@ -1,5 +1,5 @@
 # add rbenv to if not in path.
-if not set -q RBENV_ROOT; and test -d "$HOME/.rbenv"
+if not set -q RBENV_ROOT; and test -d "$HOME/.rbenv/bin"
     set -x $RBENV_ROOT "$HOME/.rbenv"
 end
 

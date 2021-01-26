@@ -8,7 +8,7 @@ abbr -a bl bundle list
 abbr -a bo bundle open
 abbr -a bcn bundle clean
 
-set -l my_user_paths $HOME/bin $HOME/.cargo/bin "/usr/local/opt/mysql@5.6/bin" "/opt/homebrew/bin" "/usr/local/sbin"
+set -l my_user_paths $HOME/bin $HOME/.cargo/bin "/usr/local/opt/mysql@5.6/bin" "/opt/homebrew/opt/llvm/bin" "/opt/homebrew/bin" "/usr/local/sbin"
 
 if test -d $HOME/go
     set -x GOPATH $HOME/go
