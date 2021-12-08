@@ -1,4 +1,4 @@
-set -x EDITOR 'emacsclient -nw'
+# set -x EDITOR 'emacsclient -nw'
 abbr -a emax emacsclient -nw
 
 abbr -a bi bundle install
@@ -44,7 +44,7 @@ end
 
 ### java init
 if test (uname) = "Darwin"
-    set -x JAVA_HOME (/usr/libexec/java_home -v 1.8)
+   # set -x JAVA_HOME (/usr/libexec/java_home -v 1.8)
 end
 
 set -x _DEFAULT_PROXY "http://127.0.0.1:10087"

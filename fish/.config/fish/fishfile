@@ -1,9 +1,9 @@
 spentacular/asdf-fish
 edc/bass
-barnybug/docker-fish-completion
 jethrokuan/z
 fishpkg/fish-git-util
 jorgebucaran/fish-getopts
 jethrokuan/fzf
 fishpkg/fish-get-file-age
 rafaelrinaldi/pure
+evanlucas/fish-kubectl-completions
